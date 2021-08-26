@@ -1,8 +1,8 @@
 from stack import Stack
 
 def matches(top,symbol):
-    open = "({["
-    close = ")}]"
+    open = "({[<"
+    close = ")}]>"
     return open.index(top) == close.index(symbol)
 
 def paren_checker(paren):
@@ -10,9 +10,9 @@ def paren_checker(paren):
     index = 0
     balanced = True
 
-    while index <= len(paren) and balanced:
+    while index < len(paren) and balanced:
         symbol = paren[index]
-        if symbol in "([{":
+        if symbol in "([{<":
             s.push(symbol)
         elif s.is_empty():
             balanced = False
